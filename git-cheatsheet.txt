@@ -1,0 +1,32 @@
+git version - Проверка установленной версии Git на компьютере
+git config --global user.name "ваш_ник" и git config --global user.email "ваша_почта@yandex.ru" - Глобальная настройка имени автора и его email для подписи коммитов
+git init -b main Инициализация нового локального репозитория с главной веткой "main"
+git remote add origin ссылка_на_репозиторий - Связывание локального репозитория с удаленным сервером под именем "origin"
+git remote -v -  Просмотр адресов удаленного репозитория для операций fetch и push
+dotnet new console -o Program --use-program-main
+git status - Просмотр текущего состояния репозитория
+git add . -  Добавление файлов в индекс для подготовки к коммиту.
+git commit -m "..." -  Фиксация проиндексированных изменений и создание нового коммита в истории
+git log - Просмотр истории коммитов
+git push -u origin main -  Первая отправка изменений локальной ветки main на удаленный сервер
+git log --oneline -   Просмотр истории коммитов в компактном виде
+git checkout -b new-feature - Создание новой ветки с переключением
+git branch - Просмотр всех веток
+git switch -c feature - Создание и переключение ветки
+git switch main - Переключение на существующую ветку
+git switch - - Переключение на предыдущую ветку
+git branch -d hotfix - Удаление ветки hotfix
+
+Проблема 1: Ошибка "bash: cd: C:Users... No such file or directory"
+Причина: Попытка использовать обратные слэши "\" Windows в терминале Git Bash.
+Решение: Использовать прямые слэши "/" и формат диска Unix.
+Пример: cd /c/Users/Student_01/Documents/Lab2_ISRPO_Kuriev
+
+Проблема 2: Ошибка "error: src refspec main does not match any" при git push.
+Причина: Локально отсутствовала ветка с именем "main" (из-за старых настроек
+Git локальная ветка создалась с именем "master", либо еще не было
+сделано ни одного коммита).
+Решение: Сделать первый коммит (git commit) и принудительно переименовать
+текущую ветку в main перед отправкой:
+git branch -M main
+git push -u origin main
